@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Harshika 💌</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+.envelope {
+  position: fixed;
+  bottom: -200px;
+  width: 220px;
+  height: 140px;
+  background: #ff6f91;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: rise 2s ease forwards;
+}
+
+@keyframes rise {
+  to { bottom: 30%; }
+}
+
+.unlock-btn {
+  padding: 10px 18px;
+  background: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  color: #ff4f79;
+  font-weight: bold;
+}
+
+.letter {
+  position: absolute;
+  top: -20px;
+  width: 300px;
+  max-height: 420px;
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  transform: scale(0);
+  opacity: 0;
+  overflow-y: auto;
+  transition: all 1s ease;
+}
+
+.letter.show {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.letter h3 {
+  text-align: center;
+  color: #ff4f79;
+}
+
+.letter p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.heart {
+  position: absolute;
+  font-size: 18px;
+  animation: float 4s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-150px); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="envelope">
+  <button class="unlock-btn" onclick="openLetter()">🔐 Unlock with Love</button>
+
+  <div class="letter" id="letter">
+    <h3>For you, Harshika 💖</h3>
+    <p>
+Heyy Harshika, I’m sryy babyy…<br><br>
+
+Whatever I did was just a mazak. I never meant to make you feel unloved, cutu.  
+I love uhh so much, and I’m really, really sorry.<br><br>
+
+You matter to meh more than my ego,  
+more than a laugh,  
+more than anything silly I could ever do.<br><br>
+
+I just wanna be with uh, and I promise I’ll never break yo heart —  
+because yo heart is something very precious to meh.  
+You are very precious to meh.<br><br>
+
+Being with you makes me feel chosen by fate.  
+Loving you makes me feel lucky.  
+And staying with you feels like something I want  
+for every version of my future.<br><br>
+
+I’m blessed because I love you.  
+And I love you because you are you.  
+Always. ♡<br><br>
+
+I feel blessed not because life is perfect,  
+but because you’re in it.  
+Your laugh, your care, the way you stay —  
+they all feel like little gifts my heart gets every single day.
+    </p>
+  </div>
+</div>
+
+<!-- Sounds -->
+<audio id="heartbeat" src="https://cdn.pixabay.com/audio/2022/03/15/audio_4d0fda6c52.mp3"></audio>
+<audio id="music" src="https://cdn.pixabay.com/audio/2022/10/03/audio_2e03f2fa64.mp3" loop></audio>
+
+<script>
+function openLetter() {
+  document.getElementById("letter").classList.add("show");
+
+  const heartbeat = document.getElementById("heartbeat");
+  const music = document.getElementById("music");
+
+  heartbeat.play();
+  music.play();
+
+  for (let i = 0; i < 20; i++) {
+    createHeart();
+  }
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * window.innerWidth + "px";
+  heart.style.bottom = "30%";
+  heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 4000);
+}
+</script>
+
+</body>
+</html>
