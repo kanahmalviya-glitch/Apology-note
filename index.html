@@ -3,112 +3,151 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Harshika 💌</title>
+<title>For Harshika 💖</title>
+
+<!-- Cursive handwritten font -->
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&display=swap" rel="stylesheet">
 
 <style>
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
   height: 100vh;
-  background: linear-gradient(135deg, #ffb6c1, #ffe4e1);
+  background: radial-gradient(circle at top, #ffd1dc, #ff9a9e);
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Dancing Script', cursive;
   overflow: hidden;
 }
 
+/* Envelope */
+.envelope-container {
+  position: relative;
+  width: 300px;
+  height: 190px;
+}
+
 .envelope {
-  position: fixed;
-  bottom: -200px;
-  width: 220px;
-  height: 140px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
   background: #ff6f91;
-  border-radius: 10px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  animation: rise 2s ease forwards;
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  overflow: hidden;
 }
 
-@keyframes rise {
-  to { bottom: 30%; }
+/* Flap */
+.flap {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 55%;
+  background: #ff4f79;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 1s ease;
+  z-index: 3;
 }
 
-.unlock-btn {
-  padding: 10px 18px;
-  background: white;
-  border: none;
-  border-radius: 20px;
-  font-size: 16px;
-  cursor: pointer;
-  color: #ff4f79;
-  font-weight: bold;
+.envelope.open .flap {
+  transform: rotateX(180deg);
 }
 
+/* Letter */
 .letter {
   position: absolute;
-  top: -20px;
-  width: 300px;
-  max-height: 420px;
-  background: white;
+  width: 92%;
+  left: 4%;
+  bottom: -120%;
+  height: 420px;
+  background: #fff;
+  border-radius: 12px;
   padding: 20px;
-  border-radius: 15px;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-  transform: scale(0);
-  opacity: 0;
-  overflow-y: auto;
-  transition: all 1s ease;
-}
-
-.letter.show {
-  transform: scale(1);
-  opacity: 1;
-}
-
-.letter h3 {
-  text-align: center;
-  color: #ff4f79;
-}
-
-.letter p {
-  font-size: 14px;
+  font-size: 17px;
   color: #444;
-  line-height: 1.6;
+  overflow-y: auto;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.35);
+  transition: bottom 1.2s ease;
+  z-index: 2;
 }
 
-.heart {
+.envelope.open .letter {
+  bottom: 10px;
+}
+
+/* Buttons */
+.controls {
   position: absolute;
-  font-size: 18px;
-  animation: float 4s linear infinite;
+  top: 220px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
-@keyframes float {
-  0% { transform: translateY(0); opacity: 1; }
-  100% { transform: translateY(-150px); opacity: 0; }
+button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 22px;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  background: white;
+  color: #ff4f79;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* Hearts */
+.heart {
+  position: fixed;
+  font-size: 20px;
+  pointer-events: none;
+  animation: floatUp 3s linear forwards;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-160px); opacity: 0; }
+}
+
+/* Shine */
+.shine {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  background: rgba(255,255,255,0.8);
+  border-radius: 50%;
+  animation: shine 1.5s linear forwards;
+}
+
+@keyframes shine {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(3); opacity: 0; }
 }
 </style>
 </head>
 
 <body>
 
-<div class="envelope">
-  <button class="unlock-btn" onclick="openLetter()">🔐 Unlock with Love</button>
+<div class="envelope-container">
+  <div class="envelope" id="envelope">
+    <div class="flap"></div>
 
-  <div class="letter" id="letter">
-    <h3>For you, Harshika 💖</h3>
-    <p>
+    <div class="letter" id="letter">
+      <p>
 Heyy Harshika, I’m sryy babyy…<br><br>
 
-Whatever I did was just a mazak. I never meant to make you feel unloved, cutu.  
-I love uhh so much, and I’m really, really sorry.<br><br>
+Whatever I did was just a mazak. I never meant to make uh feel unloved, cutu.  
+I love uhh so much and I’m sryyy.<br><br>
 
 You matter to meh more than my ego,  
 more than a laugh,  
 more than anything silly I could ever do.<br><br>
 
-I just wanna be with uh, and I promise I’ll never break yo heart —  
-because yo heart is something very precious to meh.  
+I just wanna be with uh and I promise I’ll never break yo heart,  
+becoz yo heart is something very precious to meh.  
 You are very precious to meh.<br><br>
 
 Being with you makes me feel chosen by fate.  
@@ -123,40 +162,59 @@ Always. ♡<br><br>
 I feel blessed not because life is perfect,  
 but because you’re in it.  
 Your laugh, your care, the way you stay —  
-they all feel like little gifts my heart gets every single day.
-    </p>
+they all feel like little gifts my heart gets every day.
+      </p>
+    </div>
+  </div>
+
+  <div class="controls">
+    <button onclick="openEnvelope()">💌 Open</button>
+    <button onclick="closeEnvelope()">✋ Close</button>
   </div>
 </div>
 
-<!-- Sounds -->
-<audio id="heartbeat" src="https://cdn.pixabay.com/audio/2022/03/15/audio_4d0fda6c52.mp3"></audio>
+<!-- Background music -->
 <audio id="music" src="https://cdn.pixabay.com/audio/2022/10/03/audio_2e03f2fa64.mp3" loop></audio>
 
 <script>
-function openLetter() {
-  document.getElementById("letter").classList.add("show");
+const envelope = document.getElementById("envelope");
+const music = document.getElementById("music");
+const letter = document.getElementById("letter");
 
-  const heartbeat = document.getElementById("heartbeat");
-  const music = document.getElementById("music");
-
-  heartbeat.play();
+function openEnvelope() {
+  envelope.classList.add("open");
   music.play();
-
-  for (let i = 0; i < 20; i++) {
-    createHeart();
-  }
 }
+
+function closeEnvelope() {
+  envelope.classList.remove("open");
+  music.pause();
+}
+
+letter.addEventListener("scroll", () => {
+  for (let i = 0; i < 2; i++) {
+    createHeart();
+    createShine();
+  }
+});
 
 function createHeart() {
   const heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "💖";
   heart.style.left = Math.random() * window.innerWidth + "px";
-  heart.style.bottom = "30%";
-  heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
+  heart.style.bottom = "30px";
   document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 3000);
+}
 
-  setTimeout(() => heart.remove(), 4000);
+function createShine() {
+  const shine = document.createElement("div");
+  shine.className = "shine";
+  shine.style.left = Math.random() * window.innerWidth + "px";
+  shine.style.top = Math.random() * window.innerHeight + "px";
+  document.body.appendChild(shine);
+  setTimeout(() => shine.remove(), 1500);
 }
 </script>
 
